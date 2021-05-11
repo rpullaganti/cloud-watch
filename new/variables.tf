@@ -1,19 +1,11 @@
-variable "name" {
-  type = string
+variable "log_group" {
+  type = list(object({
+    name                 = string
+    retention_in_days    = number
+    kms_key_id           = optional(string)
+  }))
 }
 
-variable "retention_in_days" {
-  type = number
-}
-
-variable "name_prefix" {
-  type = string
-}
-
-variable "kms_key_id" {
-  type = string
-  default = null
-}
 variable "tags" {
   type = map(string)
 }
