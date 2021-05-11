@@ -15,6 +15,8 @@ terraform {
 resource "aws_cloudwatch_log_group" "log_group" {
   name = var.name
   retention_in_days = var.retention_in_days 
+  name_prefix = var.name_prefix
+  kms_key_id = var.aws_kms_key_id
 
   tags = var.tags
 }
